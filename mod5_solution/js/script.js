@@ -83,9 +83,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 showLoading("#main-content");
 $ajaxUtils.sendGetRequest(
   allCategoriesUrl,
-  function(whatever){
-    buildAndShowHomeHTML(whatever);
-  }, // ***** <---- TODO: STEP 1: Substitute [...] ******
+    buildAndShowHomeHTML, // ***** <---- TODO: STEP 1: Substitute [...] ******
   true); // Explicitly setting the flag to get JSON from server processed into an object literal
 });
 // *** finish **
@@ -116,10 +114,9 @@ function buildAndShowHomeHTML (categories) {
       // Hint: you need to surround the chosen category short name with something before inserting
       // it into the home html snippet.
       //
-      var html = "'" + chosenCategoryShortName;
-      html += "'";
+      
       var homeHtmlToInsertIntoMainPage = insertProperty(homeHtml, "randomCategoryShortName", 
-                                        html);
+                                        chosenCategoryShortName);
 
 
       // TODO: STEP 4: Insert the the produced HTML in STEP 3 into the main page
